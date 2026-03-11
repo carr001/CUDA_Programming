@@ -48,7 +48,7 @@ int main(void)
 void __global__ add(const double *x, const double *y, double *z, const int N)
 {
     const int n = blockDim.x * blockIdx.x + threadIdx.x;
-    if (n < N)
+    if (n < N) // 当N 不是block_size的倍数时，必须做边界保护，否则会访问越界
     {
         z[n] = x[n] + y[n];
     }

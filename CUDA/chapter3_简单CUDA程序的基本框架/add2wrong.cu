@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     cudaMalloc((void **)&d_x, M);
     cudaMalloc((void **)&d_y, M);
     cudaMalloc((void **)&d_z, M);
-    cudaMemcpy(d_x, h_x, M, cudaMemcpyDeviceToHost);
+    cudaMemcpy(d_x, h_x, M, cudaMemcpyDeviceToHost);// copy方向失败，导致最终计算失败，check失败
     cudaMemcpy(d_y, h_y, M, cudaMemcpyDeviceToHost);
 
     const int block_size = 128;
